@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>nextcloud-aio-mastercontainer</Name>
+  <Repository>nextcloud/all-in-one:latest</Repository>
+  <Registry/>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/luzfcb/unraid-docker-templates/discussions</Support>
+  <Project>https://github.com/nextcloud/all-in-one</Project>
+  <Overview>Nextcloud All In One &#xD;
+- "my note: Suitable for those who use NGINX PROXY MANAGER"&#xD;
+&#xD;
+Nextcloud AIO stands for Nextcloud All In One and provides easy deployment and maintenance with most features included in this one Nextcloud instance.&#xD;
+&#xD;
+Included are:&#xD;
+&#xD;
+Nextcloud&#xD;
+Nextcloud Office&#xD;
+High performance backend for Nextcloud Files&#xD;
+High performance backend for Nextcloud Talk&#xD;
+Backup solution (based on BorgBackup)&#xD;
+OnlyOffice&#xD;
+ClamAV&#xD;
+&#xD;
+admin panel: https://serverIP:8080
+</Overview>
+  <Category>Cloud: Status:Stable</Category>
+  <WebUI>http://[IP]</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/luzfcb/unraid-docker-templates/main/luzfcb-nextcloud-aio-mastercontainer.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/luzfcb/unraid-docker-templates/main/logos/nextcloud-aio-logo.svg</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled></DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Description>Nextcloud All In One &#xD;
+- "my note: Suitable for those who use NGINX PROXY MANAGER"&#xD;
+&#xD;
+Nextcloud AIO stands for Nextcloud All In One and provides easy deployment and maintenance with most features included in this one Nextcloud instance.&#xD;
+&#xD;
+Included are:&#xD;
+&#xD;
+Nextcloud&#xD;
+Nextcloud Office&#xD;
+High performance backend for Nextcloud Files&#xD;
+High performance backend for Nextcloud Talk&#xD;
+Backup solution (based on BorgBackup)&#xD;
+OnlyOffice&#xD;
+ClamAV&#xD;
+&#xD;
+admin panel: https://serverIP:8080
+  </Description>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>8080</HostPort>
+        <ContainerPort>8080</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>nextcloud_aio_mastercontainer</HostDir>
+      <ContainerDir>/mnt/docker-aio-config</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/var/run/docker.sock</HostDir>
+      <ContainerDir>/var/run/docker.sock</ContainerDir>
+      <Mode>ro</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+    <Variable>
+      <Value>11000</Value>
+      <Name>APACHE_PORT</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>/mnt/user/my_files</Value>
+      <Name>NEXTCLOUD_DATADIR</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Labels/>
+  <Config Name="8080" Target="8080" Default="8080" Mode="tcp" Description="Container Port: 8080" Type="Port" Display="always" Required="false" Mask="false">8080</Config>
+  <Config Name="APACHE_PORT" Target="APACHE_PORT" Default="11000" Mode="" Description="Container Variable: APACHE_PORT" Type="Variable" Display="always" Required="false" Mask="false">11000</Config>
+  <Config Name="nextcloud_aio_mastercontainer" Target="/mnt/docker-aio-config" Default="nextcloud_aio_mastercontainer" Mode="rw" Description="Container Path: /mnt/docker-aio-config" Type="Path" Display="always" Required="false" Mask="false">nextcloud_aio_mastercontainer</Config>
+  <Config Name="/var/run/docker.sock" Target="/var/run/docker.sock" Default="/var/run/docker.sock" Mode="ro" Description="Container Path: /var/run/docker.sock" Type="Path" Display="always" Required="false" Mask="false">/var/run/docker.sock</Config>
+  <Config Name="USER FILES 1" Target="NEXTCLOUD_DATADIR" Default="" Mode="" Description="Container Variable: NEXTCLOUD_DATADIR" Type="Variable" Display="always" Required="false" Mask="false">/mnt/user/my_files</Config>
+</Container>
